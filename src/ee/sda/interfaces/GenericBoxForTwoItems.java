@@ -1,17 +1,10 @@
 package ee.sda.interfaces;
 
-public class GenericBoxForTwoItems <T, S> {
+public class GenericBoxForTwoItems <T, S> extends GenericBox<T> {
 
-    private T firstItem;
+
     private S secondItem;
 
-    public T getFirstItem() {
-        return firstItem;
-    }
-
-    public void setFirstItem(T firstItem) {
-        this.firstItem = firstItem;
-    }
 
     public S getSecondItem() {
         return secondItem;
