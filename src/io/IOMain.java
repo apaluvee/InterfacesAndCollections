@@ -304,5 +304,22 @@ public class IOMain {
         for (Map.Entry<String, Integer> wordCountPair : wordCounter.entrySet()) {
             System.out.println("Word: " + wordCountPair.getKey() + " - " + wordCountPair.getValue() + " times");
         }
+
+
+
+        /**
+         * Threads:
+         * extends Thread
+         * implements Runnable
+         */
+
+
+
+
+
+
+
+
+
     }
 }
