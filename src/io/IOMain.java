@@ -1,12 +1,16 @@
 package io;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class IOMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
 
-    Person person = new Person("Tiit", 20, "tel1", "tel2", "tel3");
+        Person person = new Person("Tiit", 20, "tel1", "tel2", "tel3");
         System.out.println(person);
 
         int personAge = person.getAge();
@@ -32,13 +36,28 @@ public class IOMain {
         // Arrays.
         // Objects.
 
+        /** Input/Output
+         *
+         * InputStream: get data from somewhere
+         * OutputStream: store data to somewhere
+         *
+         */
 
 
+        FileInputStream inputStream = null;
+        FileOutputStream outputStream = null;
 
+        inputStream = new FileInputStream("cat.png");
+        outputStream = new FileOutputStream("catCopy.png");
 
+        int c = inputStream.read();
 
+        while (c != -1) {
+            outputStream.write(c);
+        }
 
-
+        inputStream.close();
+        outputStream.close();
 
 
     }
