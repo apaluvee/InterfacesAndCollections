@@ -135,11 +135,12 @@ public class InterfacesMain {
          *      ArrayList: array
          *      LinkedList: queue ->
          *
-         * Queue: (FIFO), PriorityQueue
+         * Queue: (FIFO), PriorityQueue, LinkedList
          *
          * Set: (unordered, no duplications), SortedSet, HashSet, TreeSet
          *
-         * Map: (unordered) <key, value>, HashMap, SortedMap (ordered), TreeMap
+         *
+         * Map: (unordered) key, value, HashMap, SortedMap (ordered), TreeMap
          */
 
 
@@ -408,6 +409,8 @@ public class InterfacesMain {
 
          //TODO TreeSet
          //TODO TreeMap
+
+
 
 
 

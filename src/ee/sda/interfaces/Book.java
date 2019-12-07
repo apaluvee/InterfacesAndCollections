@@ -51,6 +51,8 @@ public class Book implements Shape, Shape3D, Comparable<Book> {
     }
     @Override
     public int hashCode() {
+        // 2 * 100
+        // 4 * 50
         return Objects.hash(width, length);
     }
 
