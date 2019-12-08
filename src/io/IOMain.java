@@ -1,6 +1,8 @@
 package io;
 
 import com.sun.org.apache.xerces.internal.xs.StringList;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import javafx.collections.transformation.SortedList;
 import sun.awt.windows.WBufferStrategy;
 
 import java.io.*;
@@ -142,8 +144,8 @@ public class IOMain {
          */
 
         System.out.println("Buffered: ");
-
         List<String> linesFromFile = new ArrayList<>();
+
 
         try (BufferedReader bufferedReader = new BufferedReader(
                 new FileReader("src/input.txt")
@@ -156,8 +158,8 @@ public class IOMain {
                 System.out.println(line);
                 line = bufferedReader.readLine();
             }
-
         }
+
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(
                 new FileWriter("output2.txt")
@@ -267,23 +269,35 @@ public class IOMain {
         BusinessCard bc = (BusinessCard) objectInputStream.readObject();
 
 
-        // java.nio.*
+        /** java.nio.*
+         * Helpers:
+         * Path
+         * Paths
+         * Files. ...
+         * isDirectory
+         * exists
+         * readLines
+         * ...
+         */
 
-        Path path = Paths.get("src/input.txt");
-        Path absolutePath = Paths.get("C:\\Users");
+
+        Path path = Paths.get("src/input.txt"); //relative Path (without the root)
+        Path absolutePath = Paths.get("C:\\Users"); //absolute Path (with root)
         absolutePath = Paths.get("/tmp/anotherFolder/...");
 
         path.getParent();
         path.getRoot();
 
 
-        //TODO words count and how many times in nonsense.txt
+        // words count and how many times in nonsense.txt
 
         Path nonsenseFile = Paths.get("nonsense.txt");
         List<String> allLines = Files.readAllLines(nonsenseFile);
 
         int totalWords = 0;
         Map<String, Integer> wordCounter = new HashMap<>();
+
+        Set<String> uniqueWords = new HashSet<>(); //longest
 
         for (String line : allLines) {
             System.out.println(line);
@@ -297,7 +311,26 @@ public class IOMain {
 
                 int currentNumberOfWords = wordCounter.getOrDefault(word, 0);
                 wordCounter.put(word, currentNumberOfWords + 1);
+
+                uniqueWords.add(word); //longest
             }
+
+            List<String> allWords = new ArrayList<>(uniqueWords); //longest
+            // sort -> comparator: compare (string1 ja string2) return string1length - string2length.
+
+            /////
+            /*int longestWords = 0;
+            for (String word : words) {
+                if (word.length() > longestWords) {
+                    longestWords = word.length();
+                    List<String> wordsList = new ArrayList<>();
+                    wordsList.add(word);
+                }
+            }
+            System.out.println();
+            System.out.println("LONGEST: " + longestWords);*/
+            /////
+
         }
         System.out.println("Total words: " + totalWords);
 
@@ -306,12 +339,24 @@ public class IOMain {
         }
 
 
-
         /**
          * Threads:
          * extends Thread
          * implements Runnable
          */
+
+
+        /**find 3 longest words in a file:
+         *
+         * 1. read the file -> lines
+         * 2. go through the lines and split each line into words
+         * 3. use Set for all the words to get rid of duplicates
+         * 4. sort the words
+         */
+
+
+
+
 
 
 

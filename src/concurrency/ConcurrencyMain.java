@@ -27,6 +27,10 @@ public class ConcurrencyMain {
         st1.start();
         st2.start();
 
+        /**
+         * Deadlock: 1 thread ootab teist ja teine esimest.
+         *
+         */
 
     }
 
