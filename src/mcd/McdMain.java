@@ -123,15 +123,15 @@ public class McdMain {
         //Optional: 1st case (Exception), 2nd case (can be null)
 
         //Optional<String> optionalName = Optional.of(name);
-        Optional<String> optionName2 = Optional.ofNullable(name);
-        if (optionName2.isPresent()) {
-            System.out.println(optionName2.get());
+        Optional<String> optionName = Optional.ofNullable(name);
+        if (optionName.isPresent()) {
+            System.out.println(optionName.get());
         }
 
-        optionName2.ifPresent((n) -> System.out.println(n));
-        optionName2.orElse("default name");
-        optionName2.orElseGet(() -> generatedInteger + "");
-        //optionName2.orElseThrow(() -> new RuntimeException());
+        optionName.ifPresent((n) -> System.out.println(n));
+        optionName.orElse("default name");
+        optionName.orElseGet(() -> generatedInteger + "");
+        //optionName.orElseThrow(() -> new RuntimeException());
 
 
         List<Integer> numbers = Arrays.asList(2, 6, 4, 8, 0, 9);
